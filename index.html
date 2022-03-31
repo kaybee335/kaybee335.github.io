@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>SentientHouse Log</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SentientHouse Log Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">SentientHouse Log <strong>(mostly) Home Automation</strong></a></h1>
+                <nav><ul>
+                    <li><a href="/pages/About-SentientHome-Log.html">About</a></li>
+                    <li><a href="/category/blog.html">blog</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/ESPHome-anavi-serial-flash.html">Summary for flashing Anavi ESPs with µART</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2022-03-31T00:00:00-04:00">
+                Published: Thu 31 March 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/kaybee335.html">kaybee335</a>
+        </address>
+<p>In <a href="/category/blog.html">blog</a>.</p>
+<p>tags: <a href="/tag/reference.html">reference</a> <a href="/tag/quick_ref.html">quick_ref</a> <a href="/tag/esphome.html">ESPHome</a> <a href="/tag/basic.html">Basic</a> </p>
+</footer><!-- /.post-info --><h1>Steps:</h1>
+<ul>
+<li>Prepare initial ESPHome YAML configuration file using the ESPHome Wizard for <code>ESP8266</code> and <code>esp12e</code> as the platform and board. Compile (don't Run) the YAML file.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>&gt; esphome wizard your-project-name.yaml
+   ... wizard configuration dialog
+   ...
+&gt; esphome compile your-project-name.yaml
+</code></pre></div>
+
+<ul>
+<li>Connect μArt to (powered off) Anavi board using flying leads, <strong>RX-TX crossover</strong>, 3.3VDC, GND. Connect computer USB to μArt microUSB.</li>
+<li>Run the YAML. This should compile/link cleanly and initiate the upload. Select the serial port for the μArt when prompted and hit enter.  The upload shoud start after some initial negotiation with the board bootloader. <strong>Keep</strong> holding the microswitch down until flashing is complete. The board will reset but will not reboot. When the board has reset release the Reset microswitch.</li>
+<li>Cycle power on the Anavi board with the μArt still connected and the <code>esphome</code> program still running.  You should see log output as the board reboots and initialises various ESPHome components. Verify successful WiFi connection n the log.</li>
+<li>Power down the Anavi board. Unplug μArt from computer USB. Apply power to the Anavi board.</li>
+<li><code>esphome run</code> the YAML file again. The μArt serial port will not be detected by ESPHome and will usually proceed directly to OTA uploading depending on your COM port configuration, otherwise you can select OTA.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>&gt; esphome run your-project-name.yaml
+</code></pre></div>
+
+<ul>
+<li>Once flashing is complete, the board will reset and reboot properly.The console should shortly start showing logging information over the WiFi connection to the board.</li>
+</ul>
+<h1>µART Connection</h1>
+<p><strong>Pin mapping:</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">μArt lead</th>
+<th align="left">Anavi Pin Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">VIN</td>
+<td align="left">3.3V</td>
+</tr>
+<tr>
+<td align="left">GND</td>
+<td align="left">GND</td>
+</tr>
+<tr>
+<td align="left">TXD &gt;&gt;</td>
+<td align="left">RX</td>
+</tr>
+<tr>
+<td align="left">&lt;&lt; RXD</td>
+<td align="left">TX</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Header board Location:</strong></p>
+<p><img alt="Anavi ESP connection" src="../images/muart_header_connect.png" title="Anavi ESP connection"></p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/Initial-post-slug.html" rel="bookmark"
+                           title="Permalink to Introduction to SentientHouse Log">Introduction to SentientHouse Log</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2022-03-28T00:00:00-04:00">
+                Published: Mon 28 March 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/kaybee335.html">kaybee335</a>
+        </address>
+<p>In <a href="/category/blog.html">blog</a>.</p>
+<p>tags: <a href="/tag/first.html">first</a> <a href="/tag/blog.html">blog</a> <a href="/tag/esphome.html">ESPHome</a> <a href="/tag/homeassistant.html">homeassistant</a> </p>
+</footer><!-- /.post-info -->                <p>An introduction to the intended purpose behind starting this blog. Even if it does end up dying a slow, neglected death!</p>
+                <a class="readmore" href="/Initial-post-slug.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
