@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>SentientHouse Log</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2022-03-31T00:00:00-04:00</updated><subtitle>(mostly) Home Automation</subtitle><entry><title>Summary for flashing Anavi ESPs with µART</title><link href="/0002-esphome-flash-serial-anavi.html" rel="alternate"></link><published>2022-03-31T00:00:00-04:00</published><updated>2022-03-31T00:00:00-04:00</updated><author><name>kaybee335</name></author><id>tag:None,2022-03-31:/0002-esphome-flash-serial-anavi.html</id><summary type="html">&lt;p&gt;Quick reference for initial serial flash of Anavi ESP devices.  Uses µART as USB-Serial UART.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Steps:&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SentientHouse Log</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2022-03-31T00:00:00-04:00</updated><subtitle>(mostly) Home Automation</subtitle><entry><title>Summary for flashing Anavi ESPs with µART</title><link href="/blog/0002-esphome-flash-serial-anavi/" rel="alternate"></link><published>2022-03-31T00:00:00-04:00</published><updated>2022-03-31T00:00:00-04:00</updated><author><name>kaybee335</name></author><id>tag:None,2022-03-31:/blog/0002-esphome-flash-serial-anavi/</id><summary type="html">&lt;p&gt;Quick reference for initial serial flash of Anavi ESP devices.  Uses µART as USB-Serial UART.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Steps:&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Prepare initial ESPHome YAML configuration file using the ESPHome Wizard for &lt;code&gt;ESP8266&lt;/code&gt; and &lt;code&gt;esp12e&lt;/code&gt; as the platform and board. Compile (don't Run) the YAML file.&lt;/li&gt;
 &lt;/ul&gt;
@@ -27,31 +27,31 @@
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th align="left"&gt;μArt lead&lt;/th&gt;
-&lt;th align="left"&gt;Anavi Pin Header&lt;/th&gt;
+&lt;th align="center"&gt;μArt lead&lt;/th&gt;
+&lt;th align="center"&gt;Anavi Pin Header&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align="left"&gt;VIN&lt;/td&gt;
-&lt;td align="left"&gt;3.3V&lt;/td&gt;
+&lt;td align="center"&gt;VIN&lt;/td&gt;
+&lt;td align="center"&gt;3.3V&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="left"&gt;GND&lt;/td&gt;
-&lt;td align="left"&gt;GND&lt;/td&gt;
+&lt;td align="center"&gt;GND&lt;/td&gt;
+&lt;td align="center"&gt;GND&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="left"&gt;TXD &amp;gt;&amp;gt;&lt;/td&gt;
-&lt;td align="left"&gt;RX&lt;/td&gt;
+&lt;td align="center"&gt;TXD &amp;gt;&amp;gt;&lt;/td&gt;
+&lt;td align="center"&gt;RX&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="left"&gt;&amp;lt;&amp;lt; RXD&lt;/td&gt;
-&lt;td align="left"&gt;TX&lt;/td&gt;
+&lt;td align="center"&gt;&amp;lt;&amp;lt; RXD&lt;/td&gt;
+&lt;td align="center"&gt;TX&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;Header board Location:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Anavi ESP connection" src="../images/muart_header_connect.png" title="Anavi ESP connection"&gt;&lt;/p&gt;</content><category term="blog"></category><category term="reference"></category><category term="quick_ref"></category><category term="ESPHome"></category><category term="Basic"></category></entry><entry><title>Introduction to SentientHouse Log</title><link href="/0001-blog-goals-inital-post.html" rel="alternate"></link><published>2022-03-28T00:00:00-04:00</published><updated>2022-03-28T00:00:00-04:00</updated><author><name>kaybee335</name></author><id>tag:None,2022-03-28:/0001-blog-goals-inital-post.html</id><summary type="html">&lt;p&gt;An introduction to the intended purpose behind starting this blog. Even if it does end up dying a slow, neglected death!&lt;/p&gt;</summary><content type="html">&lt;p&gt;As the initial post I figured I would try and summarise the &lt;em&gt;intended&lt;/em&gt; purpose here. So here we go and we'll see how things pan out...
+&lt;p&gt;&lt;img alt="Anavi ESP connection" src="/images/anavi_muart_header_connect_sm.png" title="Anavi ESP connection"&gt;&lt;/p&gt;</content><category term="blog"></category><category term="reference"></category><category term="quick_ref"></category><category term="ESPHome"></category><category term="Basic"></category></entry><entry><title>Introduction to SentientHouse Log</title><link href="/blog/0001-blog-goals-inital-post/" rel="alternate"></link><published>2022-03-28T00:00:00-04:00</published><updated>2022-03-28T00:00:00-04:00</updated><author><name>kaybee335</name></author><id>tag:None,2022-03-28:/blog/0001-blog-goals-inital-post/</id><summary type="html">&lt;p&gt;An introduction to the intended purpose behind starting this blog. Even if it does end up dying a slow, neglected death!&lt;/p&gt;</summary><content type="html">&lt;p&gt;As the initial post I figured I would try and summarise the &lt;em&gt;intended&lt;/em&gt; purpose here. So here we go and we'll see how things pan out...
 I build a lot of projects using various ESP platforms for home network connected devices. I have used Home Assistant for over a decade and about two years ago discovered ESPHome. Bam! Heaven. Code amazingly complex devices using YAML and they just show up in my home automation all ready to use. Sounds too good to be true, right? Well, not really, but sorta.&lt;/p&gt;
 &lt;p&gt;There are a &lt;strong&gt;lot&lt;/strong&gt; of amazing features in ESPHome but some of them are quite complex to use and/or difficult to figure out.  As I've learned, I have tended to 'document' what I have learned on Twitter.  Guess what? I can't find any of my own good tips, ideas, etc. when I want to refer to them again.&lt;/p&gt;
 &lt;p&gt;So that's &lt;strong&gt;Goal #1&lt;/strong&gt;.  Gather the more useful things I have tweeted about/learned and collect them here so &lt;strong&gt;I&lt;/strong&gt; can find them again.  In the process, I made the executive decision inflicting them on the general public wouldn't hurt that much. Nope, it wasn't an excuse to play with Pelican for generating the blog, not at all. Trust me.&lt;/p&gt;

@@ -4,10 +4,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content="Pelican" />
-        <title>Keeping ESPHome secrets completely secret - Part 1</title>
+        <title>Serial flash Quick Reference for Anavi ESP8266 esp12e</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SentientHouse Log Atom Feed" />
-        <meta name="description" content="How to avoid distributing you sensitive information with ESPHome. This first part will cover basic use of a secrets.yaml file and then enhance..." />
 </head>
 
 <body id="index" class="home">
@@ -17,32 +16,51 @@
                     <li><a href="/pages/0001-about-sentienthome-log.html">About</a></li>
                     <li><a href="/pages/0002-qref-main.html">qref</a></li>
                     <li><a href="/pages/0004-ref-main.html">ref</a></li>
-                    <li class="active"><a href="/category/blog.html">blog</a></li>
+                    <li><a href="/category/blog.html">blog</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="/drafts/0000-esphome-secrets-part-1.html" rel="bookmark"
-           title="Permalink to Keeping ESPHome secrets completely secret - Part 1">Keeping ESPHome secrets completely secret - Part 1</a></h1>
-    </header>
-
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-03-30T14:59:00-04:00">
-                Published: Wed 30 March 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/kaybee335.html">kaybee335</a>
-        </address>
-<p>In <a href="/category/blog.html">blog</a>.</p>
-<p>tags: <a href="/tag/blog.html">blog</a> <a href="/tag/esphome.html">ESPHome</a> </p>
-</footer><!-- /.post-info -->      <p>Text.....</p>
-    </div><!-- /.entry-content -->
-
-  </article>
+    <h1 class="entry-title">Serial flash Quick Reference for Anavi ESP8266 esp12e</h1>
+    
+    <p>Summary: This a quick reference to the flash procedure for development boars that are in use. It also lists the appropriate ESPHome platform/board. It assumes you know how to connect a UART to the board (but identifies connectors/pin locations/need for serial X-over) as well as prepare a firmware image for flashing. </p>
+<h3>Anavi ESP8266 esp12e</h3>
+<p>ESPHome: <code>ESP8266</code> and <code>esp12e</code></p>
+<p>3.3VDC logic level UART, RX-TX crossover required, no additional signal pins (no full reset over serial after flash).</p>
+<ol>
+<li>Connect UART to unpowered board, power up while holding RESET button.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">UART lead</th>
+<th align="center">Anavi Pin Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">VIN</td>
+<td align="center">3.3V</td>
+</tr>
+<tr>
+<td align="center">GND</td>
+<td align="center">GND</td>
+</tr>
+<tr>
+<td align="center">TX</td>
+<td align="center">RX</td>
+</tr>
+<tr>
+<td align="center">RXD</td>
+<td align="center">TX</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Start flash procedure and select appropriate COM port. Keep holding RESET switch.</li>
+<li>When flash completes, release RESET switch.</li>
+<li>Power cycle board to load/run new FW image.</li>
+</ol>
+<p><img alt="Anavi ESP connection" src="/images/anavi_muart_header_connect_sm.png" title="Anavi ESP connection"></p>
 </section>
         <section id="extras" class="body">
                 <div class="blogroll">
