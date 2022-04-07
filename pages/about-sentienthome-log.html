@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>About</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SentientHouse Log Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">SentientHouse Log <strong>(mostly) Home Automation</strong></a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/pages/about-sentienthome-log.html">About</a></li>
+                    <li><a href="/category/blog.html">blog</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+    <h1 class="entry-title">About</h1>
+    
+    <p><strong>TLDR:</strong> This blog exists to document efforts in cleaning up my home automation implementation to allow easier use, more/smarter integration and normalise ESPHome device development projects. These projects are currently a horrible mix of cut-and-paste and 'as I have learned' functionality combined with a near-complete lack of shared code. Enough!</p>
+<p>My house has been automated to various levels since the <a href="https://en.wikipedia.org/wiki/X10_(industry_standard)">X-10</a> era.  There is a wide array of devices in (and around) the house that have been purchased or built over the years. Sometime over a decade ago <a href="https://www.home-assistant.io/">Home Assistant</a> <em>joined</em> the mix.  Pun intended.</p>
+<p>Home Assistant provides what I like think of as a meta home automation controller (despite other mis-appropriation of <em>meta</em>). By this I mean it lets you integrate other hubs/controllers under one umbrella and allow automation across everything you own.  All my automation devices are integrated including Hue, TP-Link, Tuya, Sonos, Z-Wave...  </p>
+<p>Sounds great but I am one of those (possibly many) who has never used Lovelace/dashboards in anger.  So I control way too many things from the Configuration portion of Home Assistant.  So part of this journey will be finding/implementing a dashboard configuration that meets my needs. Along the way I will re-visit my existing automations for improvements and try to shake out ways to make things smarter overall.</p>
+<p>I also 'build' a number of automation devices using <a href="https://esphome.io">ESPHome</a>.  My current development configuration for these projects is a total mess!  There. I said it out loud (sorta).</p>
+<p>Code is a horrible mix of cut-and-paste and ways I thought it should be done at whatever stage of ESPHome knowledge I had at the time.  Nothing is backported.  There is little to no common code.  I don't even like the directory structure anymore.  Even worse, a cardinal sin, ESPHome is installed with system Python not a virtual environment.</p>
+<p>So the first step of this journey is going to be mostly about sorting out ESPHome.  This will revolve around something I'm calling <strong>SH-Ecore</strong> as the ESPHome core component for SentientHouse. The goal of this will be to be the home all common ESPHome project code (yaml/C/etc.) as well as configuration 'generation' for my common ESP platforms.  Individual projects will be made up of as much common code/configuration as possible.  This way development focus can be on the required logic of the project rather than the configuration. If a problem is found with common code, it actually only has to be fixed in one place.  All projects get any improvements with a rebuild/flash. </p>
+<p>Huh? Let's make that more concrete.  Consider an ESPHome PIR motion detector as a device.  What does it do? Well, it detects motion on whatever GPIO pin is connected to the PIR and reports it. That's it and that's the logic part. Now, what is that logic going run on?  Is it going to be a <a href="https://docs.m5stack.com/en/core/atom_lite">M5Stack Atom</a> connected to a <a href="https://docs.m5stack.com/en/unit/pir">PIR</a> module with a Grove cable? Or will it be one of the many ESP-01's and PIR modules currently lying around here? Or both?</p>
+<p>So what I want is a way to build motion detectors by just specifying a platform and a GPIO pin if that's possible. I doubt it's going to be that easy and I suspect the devil is going to be in the details.  Other things include easily adding the set of ESPHome native sensors, etc (e.g. WiFi strength). used across projects. And of course, it all needs to be done in a manner that doesn't expose secrets. It also needs to be documented.</p>
+<p>My goal is to develop SH-Ecore incrementally as there are a number of things I have ideas on but have not experimented with in enough detail.  My intent is each SH-Ecore 'major release' will also have a blog entry describing a project using the new features added in that release.  There are a number of these already planned for what I currently see as major milestones. It does mean that the code for any project will be comprised of two repo's; the SH-Ecore repo and the individual project repo. That also means there will be an assumed core/project directory structure in order for projects to reference the core. Repo's will be public.</p>
+<p>If necessary, there will also be a <strong>SH-HAcore</strong> for homeassistant. Not sure that this is required yet, emphasis will be to do as much as possible with the web interface rather than get into the raw yaml.  We'll see how it goes, at least the placeholder is there and ready.</p>
+<p>This is much too long already but I'll close with a really wild guess at how frequently I expect to post.  I'll create a post for each project but they may be a month or two apart.  In the interim, I'll post about things I am learning on that project and their impact on SH-Ecore if they are applicable.  Each post will contain some useful 'nugget' of knowledge that so hopefully you'll come away with some payback for your time invested in reading. I expect to produce that type of post every 1-2 weeks.</p>
+<p>If you are a sucker for punishment and want access to the really half-baked things I think about check over here on my <strong>Twitter feed</strong>.</p>
+<p>Welcome and Thanks
+KB</p>
+<hr>
+<p>Blog Name Explanation: SentientHouse is what my daughter began to call things when the home automation implemention here really started to expand with ESPs.  Generally in a statement of the form "Is SentientHouse having a brain fart again?".</p>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://esphome.io/">ESPHome</a></li>
+                            <li><a href="https://www.home-assistant.io/">Home Assistant</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
